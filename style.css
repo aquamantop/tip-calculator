@@ -3,19 +3,91 @@
     padding: 0;
     border: 0;
     vertical-align: baseline;
+    font-family: 'Syne Mono', monospace;
+    font-weight: 600;
 }
 
 body {
-    background-color: #c4e4e7;
+    background-color: hsl(185, 41%, 84%);
 }
 
 main {
-    color: #718383;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    color: hsl(186, 14%, 43%);
+}
+h1 {
+    margin: 5% 45% -8% 45%;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: hsl(0, 0%, 100%);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin: 10% 30%;
+}
+
+.ingresarDatos {
+    display: flex;
+    text-align: right;
+    background-color: hsl(189, 41%, 97%);
+    background-repeat: no-repeat;
+
+}
+#montoTotal {
+    background-image: url(./images/icon-dollar.svg);
+}
+
+#cantidadPersonas {
+    background-image: url(./images/icon-person.svg);
 }
 
 buttons {
-    background-color: #00474b;
+    background-color: hsl(183, 100%, 15%);
 }
+
+
+#dos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: hsl(183, 100%, 15%);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+span {
+    display: flex;
+
+}
+.monto {
+    color: hsl(0, 0%, 100%);
+}
+
+.persona {
+    font-size: 0.7rem;
+}
+
+.montoAPagar {
+    color: hsl(175, 47%, 71%);
+}
+
+article {
+    color: hsl(183, 100%, 15%);
+    color: hsl(186, 14%, 43%);
+    color: hsl(184, 14%, 56%);
+    color: hsl(185, 41%, 84%);
+    color: hsl(189, 41%, 97%);
+    color: hsl(0, 0%, 100%);
+}
+
+
+
 
 
 
@@ -24,7 +96,7 @@ buttons {
 
 footer {
     color: #000;
-    clear: both;         
+    bottom: 0;    
     font-size: 0.8rem; 
     text-align: center;
 }

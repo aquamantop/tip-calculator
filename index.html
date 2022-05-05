@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
+  <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <link rel="stylesheet" href="./style.css">
   <script src="./main.js"></script>
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
@@ -13,26 +17,72 @@
 <body>
 
   <main>
+    
+    <h1>
+      S P L I T T E R 
+    </h1> 
 
-    Bill
-    
-    Select Tip %
-    5%
-    10%
-    15%
-    25%
-    50%
-    Custom
-    
-    Number of People
-    
-    Tip Amount
-    / person
-    
-    Total
-    / person
-    
-    Reset
+    <form>
+      <!-- Seccion izquierda del form -->
+      <section id="uno">
+
+        <!-- Monto del gasto total -->
+        <label for="montoTotal">Bill
+          <input class="ingresarDatos" id="montoTotal" placeholder=0>
+        </label> 
+        
+        <!-- Seccion de propinas -->
+        <label for="propina">Select Tip %
+          <button>
+            5%
+          </button>
+          
+          <button>
+            10%
+          </button>
+          
+          <button>
+            15%
+          </button>
+          
+          <button>
+            25%
+          </button>
+          
+          <button>
+            50%
+          </button>
+          
+          <button>
+            Custom
+          </button>
+        </label>
+        <br>
+        <label for="cantidadPersonas">Number of People
+          <input class="ingresarDatos" id="cantidadPersonas" placeholder=0>  
+        </label>
+      </section>
+      
+      <!-- Seccion derecha del form -->
+      <section id="dos">
+
+        <p>
+          <span class="monto">Tip Amount</span>
+          <span class="persona">/ person</span>
+          <span class="montoAPagar"><img src="./images/icon-dollar.svg" alt="icon-dollar">0.00</span>
+        </p>
+        
+        <p>
+          <span class="monto">Total</span>
+          <span class="persona">/ person</span>
+          <span class="montoAPagar"><img src="./images/icon-dollar.svg" alt="icon-dollar">0.00</span>
+        </p>
+        
+        <button type="reset" id="reset">Reset</button>
+
+      </section>
+    </form>
+
   </main>
     
   <footer>
