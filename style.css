@@ -41,32 +41,13 @@ label {
     padding: 1rem 0rem;
 }
 
-/* Estilos de los input */
-.ingresarDatos {
+/* Seccion izquierda del form */
+#uno {
     display: flex;
-    text-align: right;
-    width: 70%;
-    background-color: hsl(189, 41%, 97%);
-    background-repeat: no-repeat;
-    padding: 0.2rem;
-    font-size: 2rem;
-}
-#montoTotal {
-    background-image: url(./images/icon-dollar.svg);
-    background-size: 1.7rem;
-}
-#cantidadPersonas {
-    background-image: url(./images/icon-person.svg);
-    background-size: 2rem;
-}
-
-/* Botones de propina */
-button {
-    background-color: hsl(183, 100%, 15%);
-    color: hsl(0, 0%, 100%);
-    padding: 0.5rem 1.5rem;
-    font-size: 1.5rem;
-    border-radius: 0.2rem;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    border-radius: 1rem;
 }
 
 /* Seccion derecha del form */
@@ -79,23 +60,74 @@ button {
     border-radius: 1rem;
 }
 
+/* Estilos de los input */
+.ingresarDatos {
+    display: flex;
+    text-align: right;
+    background-color: hsl(189, 41%, 97%);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: left;
+    border-radius: 0.5rem;
+    padding: 0.2rem 1rem;
+    font-size: 1.8rem;
+}
+#montoTotal {
+    background-image: url(./images/icon-dollar.svg);
+    background-size: 1.2rem;
+
+}
+#cantidadPersonas {
+    background-image: url(./images/icon-person.svg);
+    background-size: 1.5rem;
+}
+
+/* Botones de propina */
+button {
+    background-color: #0d686d;
+    color: hsl(0, 0%, 100%);
+    padding: 0.2rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 0.2rem;
+}
+
+#reset {
+    color: hsl(186, 14%, 43%);
+}
+
+
+
+
+/* Parrafos */
+p {
+    display: flex;
+    margin: 2rem 0rem;
+}
+
 /* Spans */
 span {
     display: flex;
     flex-wrap: wrap; 
 }
+
 /* Tip Amount y Total */
 .monto {
     color: hsl(0, 0%, 100%);
 }
+
 /* / person */
 .persona {
     font-size: 0.7rem;
 }
+
 /* Saldo a pagar */
 .montoAPagar {
     color: hsl(175, 47%, 71%);
+    font-size: 2rem;
 }
+
+
+
 
 article {
     color: hsl(183, 100%, 15%);
