@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+body {
+    background-color: #c4e4e7;
+}
+
+main {
+    color: #718383;
+}
+
+buttons {
+    background-color: #00474b;
+}
+
+
+
+
+
+
+footer {
+    color: #000;
+    clear: both;         
+    font-size: 0.8rem; 
+    text-align: center;
+}
+footer a {
+    text-decoration: none;
+    color: rgb(0, 255, 21);
+}
+footer a:visited {
+    color: rgb(0, 0, 255);
+}
+footer a:hover {
+    color: rgb(0, 255, 170);
+}
