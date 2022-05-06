@@ -1,8 +1,9 @@
-/* Expresion regular */
-const regex = /^[0-9]*(\.[0-9]{0,2})?$/
 
 /* Esperamos la carga de la pagina */
 window.addEventListener('load', () => {
+    /* Expresion regular */
+    const regex = /^[0-9]*(\.[0-9]{0,2})?$/
+    /* Constantes */
     const form = document.forms[0];
     const montoTotal = document.querySelector("#montoTotal")
     const cantidadPersonas = document.querySelector("#cantidadPersonas")
