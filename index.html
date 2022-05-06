@@ -33,33 +33,32 @@
         
         <!-- Seccion de propinas -->
         <label id="propina" for="propina">
-          <span>
-            Select Tip %
+          <span id="select">Select Tip %</span>
+          
+          <div>  
+            <button id="cinco">
+              5%
+            </button>
+            
+            <button>
+              10%
+            </button>
+            
+            <button>
+              15%
+            </button>
+            
+            <button>
+              25%
+            </button>
+            
+            <button>
+              50%
+            </button>
+            
+            <input id="custom" placeholder="Custom">
+          </div>
 
-          </span>
-          <button>
-            5%
-          </button>
-          
-          <button>
-            10%
-          </button>
-          
-          <button>
-            15%
-          </button>
-          
-          <button>
-            25%
-          </button>
-          
-          <button>
-            50%
-          </button>
-          
-          <button>
-            Custom
-          </button>
         </label>
         
         <label for="cantidadPersonas">Number of People
@@ -70,19 +69,23 @@
       <!-- Seccion derecha del form -->
       <section id="dos">
 
-        <p id="parteUno">
-          <span class="monto">Tip Amount</span>
-          <span class="persona">/ person</span>
-        </p>
-        <span class="montoAPagar">$0.00</span>
+        <div class="cajaDeMonto">
+          <div>
+            <p class="monto">Tip Amount</p>
+            <p class="persona">/ person</p>
+          </div>
+          <span class="montoAPagar">$0.00</span>
+        </div>
         
-        <p id="parteDos"> 
-          <span class="monto">Total</span>
-          <span class="persona">/ person</span>
-        </p>
-        <span class="montoAPagar">$0.00</span>
+        <div class="cajaDeMonto"> 
+          <div>
+            <p class="monto">Total</p>
+            <p class="persona">/ person</p>
+          </div>
+          <span class="montoAPagar">$0.00</span>
+        </div>
         
-        <button type="reset" id="reset">Reset</button>
+        <button type="reset" id="reset">RESET</button>
 
       </section>
     </form>

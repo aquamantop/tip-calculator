@@ -33,81 +33,99 @@ form {
     background-color: hsl(0, 0%, 100%);
     padding: 2rem;
     border-radius: 1rem;
-    margin: 10% 30%;
-}
-
-/* Label */
-label {
-    padding: 1rem 0rem;
+    margin: 10% 20%;
 }
 
 /* Seccion izquierda del form */
-#uno {
+section {
+    width: 50%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 2rem;
-    border-radius: 1rem;
+    justify-content: space-around;
+    padding: 0rem 1rem;
 }
 
 /* Seccion derecha del form */
 #dos {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     background-color: hsl(183, 100%, 15%);
-    padding: 2rem;
     border-radius: 1rem;
+    padding: 1.3rem 1rem;
 }
 
 /* Estilos de los input */
 .ingresarDatos {
     display: flex;
-    text-align: right;
-    background-color: hsl(189, 41%, 97%);
-    background-repeat: no-repeat;
     background-position-y: center;
-    background-position-x: left;
+    background-repeat: no-repeat;
+    background-color: hsl(189, 41%, 97%);
+    text-align: right;
+    margin-top: 1rem;
+    width: 90%;
     border-radius: 0.5rem;
-    padding: 0.2rem 1rem;
+    padding: 0.2rem 0.7rem;
     font-size: 1.8rem;
 }
 #montoTotal {
+    background-size: 0.7rem;
     background-image: url(./images/icon-dollar.svg);
-    background-size: 1.2rem;
-
+    background-origin: content-box;
 }
 #cantidadPersonas {
+    background-size: 1rem;
     background-image: url(./images/icon-person.svg);
-    background-size: 1.5rem;
+    background-origin: content-box;
+}
+
+/* Seccion propina */
+#select {
+    padding: 0.5rem 0rem;
+}
+#propina {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 1rem 0rem;
+    padding: 0rem 0rem;
+    width: 100%;
+    height: 100%;
 }
 
 /* Botones de propina */
 button {
     background-color: #0d686d;
     color: hsl(0, 0%, 100%);
-    padding: 0.2rem 2rem;
-    font-size: 1.5rem;
-    border-radius: 0.2rem;
+    margin: 0.5rem 0.1rem;
+    padding: 1rem 2.6rem;
+    border-radius: 0.4rem;
+}
+#cinco {
+    padding: 1rem 2.9rem;
 }
 
+/* Propina customizable */
+#custom {
+    background-color: hsl(189, 41%, 97%);
+    color: #0d686d;
+    text-align: center;
+    width: 6rem;
+    padding: 1rem 0.4rem;
+    margin: 0.5rem 0.1rem;
+    border-radius: 0.3rem;
+}
+
+/* Boton para resetear */
 #reset {
     color: hsl(186, 14%, 43%);
+    margin: 6rem 1rem 1rem;
 }
 
-
-
-
-/* Parrafos */
-p {
+/* Monton totales y de propina */
+.cajaDeMonto {
     display: flex;
-    margin: 2rem 0rem;
-}
-
-/* Spans */
-span {
-    display: flex;
-    flex-wrap: wrap; 
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding: 1rem;
 }
 
 /* Tip Amount y Total */
@@ -126,26 +144,7 @@ span {
     font-size: 2rem;
 }
 
-
-
-
-article {
-    color: hsl(183, 100%, 15%);
-    color: hsl(186, 14%, 43%);
-    color: hsl(184, 14%, 56%);
-    color: hsl(185, 41%, 84%);
-    color: hsl(189, 41%, 97%);
-    color: hsl(0, 0%, 100%);
-}
-
-
-
-
-
-
-
-
-
+/* Pie de pagina */
 footer {
     color: #000;
     bottom: 0;    
