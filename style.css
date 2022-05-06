@@ -4,7 +4,7 @@
     border: 0;
     vertical-align: baseline;
     font-family: 'Space Mono', monospace;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 body {
@@ -76,7 +76,12 @@ section {
     background-image: url(./images/icon-person.svg);
     background-origin: content-box;
 }
-
+.ingresarDatos:hover {
+    outline: solid hsl(175, 47%, 71%);
+}
+.ingresarDatos:focus {
+    outline: solid hsl(175, 47%, 71%);
+}
 /* Seccion propina */
 #select {
     padding: 0.5rem 0rem;
@@ -92,12 +97,16 @@ section {
 }
 
 /* Botones de propina */
-button {
+.boton {
     background-color: #0d686d;
     color: hsl(0, 0%, 100%);
     margin: 0.5rem 0.1rem;
     padding: 1rem 2.6rem;
     border-radius: 0.4rem;
+}
+.boton:hover {
+    color: #000;
+    background-color: hsl(175, 47%, 71%);
 }
 #cinco {
     padding: 1rem 2.9rem;
@@ -113,11 +122,35 @@ button {
     margin: 0.5rem 0.1rem;
     border-radius: 0.3rem;
 }
+#custom:hover {
+    outline: solid hsl(175, 47%, 71%);
+}
+#custom:focus {
+    outline: solid hsl(175, 47%, 71%);
+}
+
+/* Propina seleccionada */
+.propinaElegida {
+    color: #000;
+    background-color: #26c2ad;
+}
 
 /* Boton para resetear */
 #reset {
+    background-color: #0d686d;
+    margin: 0.5rem 0.1rem;
+    padding: 1rem 2.6rem;
+    border-radius: 0.4rem;
     color: hsl(186, 14%, 43%);
     margin: 6rem 1rem 1rem;
+}
+.resetHabilitado {
+    color: #000;
+    background-color: #26c2ad;
+}
+.resetHabilitado:hover {
+    color: #000;
+    background-color: hsl(175, 47%, 71%);
 }
 
 /* Monton totales y de propina */
@@ -140,8 +173,23 @@ button {
 
 /* Saldo a pagar */
 .montoAPagar {
-    color: hsl(175, 47%, 71%);
+    color: #26c2ad;
     font-size: 2rem;
+}
+
+.hide {
+    display: none;
+}
+.errorPropina {
+    margin-left: 11rem;
+    color: #e59a89;
+}
+.errorPersona {
+    margin-left: 4rem;
+    color: #e59a89;
+}
+.errorBorde {
+    outline: solid #e59a89;
 }
 
 /* Pie de pagina */

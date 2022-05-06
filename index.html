@@ -27,7 +27,7 @@
       <section id="uno">
 
         <!-- Monto del gasto total -->
-        <label for="montoTotal">Bill
+        <label for="montoTotal">Bill<span class="hide">Can't be zero</span>
           <input class="ingresarDatos" id="montoTotal" placeholder=0>
         </label> 
         
@@ -36,32 +36,32 @@
           <span id="select">Select Tip %</span>
           
           <div>  
-            <button id="cinco">
+            <button class="boton" id="cinco">
               5%
             </button>
             
-            <button>
+            <button class="boton">
               10%
             </button>
             
-            <button>
+            <button class="boton">
               15%
             </button>
             
-            <button>
+            <button class="boton">
               25%
             </button>
             
-            <button>
+            <button class="boton">
               50%
             </button>
             
-            <input id="custom" placeholder="Custom">
+            <input  class="boton" id="custom" placeholder="Custom">
           </div>
 
         </label>
         
-        <label for="cantidadPersonas">Number of People
+        <label for="cantidadPersonas">Number of People<span class="hide">Can't be zero</span>
           <input class="ingresarDatos" id="cantidadPersonas" placeholder=0>  
         </label>
       </section>
