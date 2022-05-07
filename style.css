@@ -177,6 +177,7 @@ section {
     font-size: 2rem;
 }
 
+/* Errores */
 .hide {
     display: none;
 }
@@ -195,7 +196,7 @@ section {
 /* Pie de pagina */
 footer {
     color: #000;
-    bottom: 0;    
+    clear: both;
     font-size: 0.8rem; 
     text-align: center;
 }
