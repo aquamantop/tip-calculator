@@ -13,10 +13,12 @@ window.addEventListener('load', () => {
     const custom = document.querySelector("#custom")
     const reset = document.querySelector("#reset")
     const montoAPagar = document.querySelectorAll(".montoAPagar")
+    const errorMonto = document.querySelector("#errorMonto")
     const arrayConPunto = []
     const arraySinPunto = []
     const maxPersonas = []
-    let eleccion = ""
+    const valorMontoTotal = 0
+    let eleccionPropina = 0
 
     /* Logica para que al apretar la tecla de retroceso se puedan seguir añadiendo numeros */
     /* (problema al ingresar un punto, borrarlo y luego querer añadir numeros) */
@@ -37,6 +39,13 @@ window.addEventListener('load', () => {
                 e.preventDefault()
             }
     })
+    /* Valor del monto total */
+    montoTotal.addEventListener("blur", () => {
+        if (custom.value == 0){
+            errorMonto.classList.remove("hide")
+            
+        } else eleccionPropina = custom.value
+    })
     
     /* Validacion para el ingreso de la cantidad de personas */
     /* No permitiendo ser 0 y maximo de 2 digitos */
@@ -52,22 +61,38 @@ window.addEventListener('load', () => {
     })
     
     /* Cambio de estilo para la propina elegida */
-    propinas.forEach((e) => {
-        e.addEventListener('click', () => {
+    /* Y enviar valor de la propina a la funcion encargada */
+    propinas.forEach( (e) => {
+        e.addEventListener("click", () => {
             propinas.forEach(e=>e.classList.remove("propinaElegida"));
             e.classList.add("propinaElegida")
-            eleccion = e.innerHTML
+            valorPropina(e.innerHTML)
         })
     })
 
+
     /* Logica del boton de custom de la propina */
-    custom.addEventListener("change", (e) => {
-        e.preventDefault()
+    /* Y validacion */
+    custom.addEventListener("keydown", (e) => {
+        if (e.code === "Backspace") {
+            maxPersonas.pop()
+        } 
+    })
+    custom.addEventListener("keypress", (e) => {
+        if (!validarPersonas(e.key)) {
+            e.preventDefault()
+        }
+    })
+    custom.addEventListener("blur", () => {
+        if (custom.value == 0){
+            alert("La propina customizada debe ser distinta de 0")
+        } else eleccionPropina = custom.value
     })
 
     /* Prevenir enviado del form */
     form.addEventListener('submit', (e) => {
         e.preventDefault()
+
     })
 
     /* Trabajar con el boton de reset */
@@ -112,28 +137,15 @@ window.addEventListener('load', () => {
     /* Funcion para obtener el porcentaje de la propina */
     /* y cantidad a pagar segun cantidad de personas */
     function valorPropina (eleccion) {
-        let propina = 0
-        let porcentajeAPagar = propina / cantidadPersonas.value
+        let valor = eleccion.trim()
+        let num = valor.slice(0, -1)
+        let montoPropina = 0
+        let porcentajeAPagar = montoPropina / cantidadPersonas.value
 
-        // MONTO SOLO DE LAS PROPINAS
-        if (eleccion === "5%") {
-            propina = 5 * montoTotal / 100 
-        }
-        else if (eleccion === "10%") {
-            propina = 10 * montoTotal / 100
-        }
-        else if (eleccion === "15%") {
-            propina = 15 * montoTotal / 100
-        }
-        else if (eleccion === "25%") {
-            propina = 25 * montoTotal / 100
-        }
-        else if (eleccion === "50%") {
-            propina = 50 * montoTotal / 100
-        }
-        else {
-            propina = eleccion * montoTotal / 100
-        }
+        montoPropina = num * montoTotal / 100
+
+        console.log(porcentajeAPagar);
+
         return porcentajeAPagar
     }
     
