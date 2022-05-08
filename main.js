@@ -3,7 +3,7 @@ window.addEventListener('load', () => {
 
     /* Expresion regular */
     const regex = /^[0-9]*(\.[0-9]{0,2})?$/
-    const regex2 = /^[0-9]*$/
+    const regex2 = /^[0-9]+$/
 
     /* Constantes */
     const form = document.forms[0]
@@ -98,7 +98,7 @@ window.addEventListener('load', () => {
     function validarPersonas (cant) {
         let p = cant.match(regex2)
 
-        if (p.input && maxPersonas.length < 2) {
+        if (p && maxPersonas.length < 2) {
             maxPersonas.push(cant)
             return true
         } else false 
