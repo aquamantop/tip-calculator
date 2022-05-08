@@ -6,6 +6,7 @@ window.addEventListener('load', () => {
     const regex2 = /^[0-9]+$/
 
     /* Constantes */
+    const dos = document.querySelector("#dos")
     const form = document.forms[0]
     const montoTotal = document.querySelector("#montoTotal")
     const cantidadPersonas = document.querySelector("#cantidadPersonas")
@@ -14,11 +15,18 @@ window.addEventListener('load', () => {
     const reset = document.querySelector("#reset")
     const montoAPagar = document.querySelectorAll(".montoAPagar")
     const errorMonto = document.querySelector("#errorMonto")
+    const errorPersonas = document.querySelector("#errorPersonas")
     const arrayConPunto = []
     const arraySinPunto = []
     const maxPersonas = []
-    const valorMontoTotal = 0
+    let valorMontoTotal = 0
+    let valorCantidadDePersonas = 0
     let eleccionPropina = 0
+
+    /* Prevenir enviado del form */
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+    })
 
     /* Logica para que al apretar la tecla de retroceso se puedan seguir añadiendo numeros */
     /* (problema al ingresar un punto, borrarlo y luego querer añadir numeros) */
@@ -39,12 +47,11 @@ window.addEventListener('load', () => {
                 e.preventDefault()
             }
     })
-    /* Valor del monto total */
+    /* Valor del monto total y logica para */ 
+    /* la visualizacion del error */
     montoTotal.addEventListener("blur", () => {
-        if (custom.value == 0){
-            errorMonto.classList.remove("hide")
-            
-        } else eleccionPropina = custom.value
+        validarMonto()
+        validarReset()
     })
     
     /* Validacion para el ingreso de la cantidad de personas */
@@ -59,6 +66,12 @@ window.addEventListener('load', () => {
             e.preventDefault()
         }
     })
+    /* Valor del total de personas y logica */
+    /* para la visualizacion del error */
+    cantidadPersonas.addEventListener("blur", () => {
+        validarTotalPersonas()
+        validarReset()
+     })
     
     /* Cambio de estilo para la propina elegida */
     /* Y enviar valor de la propina a la funcion encargada */
@@ -67,12 +80,12 @@ window.addEventListener('load', () => {
             propinas.forEach(e=>e.classList.remove("propinaElegida"));
             e.classList.add("propinaElegida")
             valorPropina(e.innerHTML)
+            validarReset()
         })
     })
 
-
     /* Logica del boton de custom de la propina */
-    /* Y validacion */
+    /* Y validaciones */
     custom.addEventListener("keydown", (e) => {
         if (e.code === "Backspace") {
             maxPersonas.pop()
@@ -85,20 +98,11 @@ window.addEventListener('load', () => {
     })
     custom.addEventListener("blur", () => {
         if (custom.value == 0){
-            alert("La propina customizada debe ser distinta de 0")
-        } else eleccionPropina = custom.value
-    })
-
-    /* Prevenir enviado del form */
-    form.addEventListener('submit', (e) => {
-        e.preventDefault()
-
-    })
-
-    /* Trabajar con el boton de reset */
-    reset.addEventListener("click", (e) => {
-        e.preventDefault()
-        !validarReset()
+            alert("Custom tip can't be zero")
+        } else {
+            eleccionPropina = custom.value
+            validarReset()
+        }
     })
 
     /* Funcion de validacion de numero en monto total */
@@ -129,37 +133,56 @@ window.addEventListener('load', () => {
         } else false 
     }
 
-    /* Funcion para manejar los errores */
-    function error () {
-        
-    }
-
     /* Funcion para obtener el porcentaje de la propina */
     /* y cantidad a pagar segun cantidad de personas */
     function valorPropina (eleccion) {
         let valor = eleccion.trim()
         let num = valor.slice(0, -1)
-        let montoPropina = 0
-        let porcentajeAPagar = montoPropina / cantidadPersonas.value
-
-        montoPropina = num * montoTotal / 100
-
-        console.log(porcentajeAPagar);
-
-        return porcentajeAPagar
+        let montoPropina = num * valorMontoTotal / 100
+        eleccionPropina = montoPropina / valorCantidadDePersonas
+        console.log(eleccionPropina);
     }
-    
-    /* Funcion para  */
 
+    /* Errores */
+
+    /* Validacion en los montos */
+    function validarMonto () {
+        if (montoTotal.value == 0){
+            errorMonto.classList.remove("hide")
+            errorMonto.classList.add("errorPropina")
+        } else {
+            errorMonto.classList.remove("errorPropina")
+            errorMonto.classList.add("hide")
+            valorMontoTotal = montoTotal.value
+        }
+    }
+
+    /* Validacion en las personas */
+    function validarTotalPersonas () {
+        if (cantidadPersonas.value == 0){
+            errorPersonas.classList.remove("hide")
+            errorPersonas.classList.add("errorPersona")
+         } else {
+            errorPersonas.classList.remove("errorPersona")
+            errorPersonas.classList.add("hide")
+            valorCantidadDePersonas = cantidadPersonas.value
+        }
+    }
+
+    /* Funcion para validar el boton de reset */
     function validarReset () {
-        montoAPagar.forEach(e => {
-            if(e.innerHTML === "$0.00"){
-                reset.innerHTML = `<button type="reset" id="reset" disabled>RESET</button>`
-            } 
-            if (!e.innerHTML === "$0.00"){
-                reset.innerHTML = `<button type="reset" id="reset">RESET</button>`
-            }
-        })
+        if (valorMontoTotal !== 0 && valorCantidadDePersonas !== 0 && eleccionPropina !== 0) {
+            montoAPagar.forEach(e => {
+                let monto = e.innerHTML
+                let recorte = monto.slice(1)
+                let valores = parseInt(recorte)
+                if(valores !== 0.00){
+                    reset.removeAttribute("disabled")
+                } else if (valores === 0.00){
+                    reset.setAttribute("disabled")
+                }
+            })
+        }
     }
 
 
