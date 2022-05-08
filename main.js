@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
     const arrayConPunto = []
     const arraySinPunto = []
     const maxPersonas = []
-    let eleccion = "0"
+    let eleccion = ""
 
     /* Logica para que al apretar la tecla de retroceso se puedan seguir añadiendo numeros */
     /* (problema al ingresar un punto, borrarlo y luego querer añadir numeros) */
@@ -41,14 +41,14 @@ window.addEventListener('load', () => {
     /* Validacion para el ingreso de la cantidad de personas */
     /* No permitiendo ser 0 y maximo de 2 digitos */
     cantidadPersonas.addEventListener("keydown", (e) => {
-        if (e.code === "Backspace" && (maxPersonas.length < 2) && maxPersonas.length != 0) {
+        if (e.code === "Backspace") {
             maxPersonas.pop()
         } 
     })
     cantidadPersonas.addEventListener("keypress", (e) => {
-        if(!validarPersonas(e.key)){
+        if (!validarPersonas(e.key)) {
             e.preventDefault()
-        } 
+        }
     })
     
     /* Cambio de estilo para la propina elegida */
@@ -63,16 +63,17 @@ window.addEventListener('load', () => {
     /* Logica del boton de custom de la propina */
     custom.addEventListener("change", (e) => {
         e.preventDefault()
-
-
     })
 
-    /* Prevenir enviado del form y trabajar con el boton de reset */
+    /* Prevenir enviado del form */
     form.addEventListener('submit', (e) => {
         e.preventDefault()
-        // if(validarMontos()){
-        //     location.reload()
-        // }
+    })
+
+    /* Trabajar con el boton de reset */
+    reset.addEventListener("click", (e) => {
+        e.preventDefault()
+        !validarReset()
     })
 
     /* Funcion de validacion de numero en monto total */
@@ -96,9 +97,8 @@ window.addEventListener('load', () => {
     /* Funcion para validar cantidad de personas */
     function validarPersonas (cant) {
         let p = cant.match(regex2)
-        console.log(p);
 
-        if (p && (maxPersonas.length < 2)) {
+        if (p.input && maxPersonas.length < 2) {
             maxPersonas.push(cant)
             return true
         } else false 
@@ -109,38 +109,43 @@ window.addEventListener('load', () => {
         
     }
 
+    /* Funcion para obtener el porcentaje de la propina */
+    /* y cantidad a pagar segun cantidad de personas */
+    function valorPropina (eleccion) {
+        let propina = 0
+        let porcentajeAPagar = propina / cantidadPersonas.value
 
-    /* Funcion para manejar los monto totales a pagar de cada persona */
-    /* y viusalizarlos por pantalla */
-    function porcentaje (eleccion) {
+        // MONTO SOLO DE LAS PROPINAS
         if (eleccion === "5%") {
-            5 * montoTotal / 100
+            propina = 5 * montoTotal / 100 
         }
         else if (eleccion === "10%") {
-            10 * montoTotal / 100
+            propina = 10 * montoTotal / 100
         }
         else if (eleccion === "15%") {
-            15 * montoTotal / 100
+            propina = 15 * montoTotal / 100
         }
         else if (eleccion === "25%") {
-            25 * montoTotal / 100
+            propina = 25 * montoTotal / 100
         }
         else if (eleccion === "50%") {
-            50 * montoTotal / 100
+            propina = 50 * montoTotal / 100
         }
         else {
-            eleccion * montoTotal / 100
+            propina = eleccion * montoTotal / 100
         }
+        return porcentajeAPagar
     }
+    
+    /* Funcion para  */
 
-    function validarMontos () {
+    function validarReset () {
         montoAPagar.forEach(e => {
             if(e.innerHTML === "$0.00"){
-                reset.disabled = true
-                e.classList.add
+                reset.innerHTML = `<button type="reset" id="reset" disabled>RESET</button>`
             } 
             if (!e.innerHTML === "$0.00"){
-                reset.disabled = false
+                reset.innerHTML = `<button type="reset" id="reset">RESET</button>`
             }
         })
     }

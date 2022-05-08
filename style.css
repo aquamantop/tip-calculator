@@ -137,18 +137,20 @@ section {
 
 /* Boton para resetear */
 #reset {
-    background-color: #0d686d;
     margin: 0.5rem 0.1rem;
     padding: 1rem 2.6rem;
     border-radius: 0.4rem;
-    color: hsl(186, 14%, 43%);
     margin: 6rem 1rem 1rem;
 }
-.resetHabilitado {
+#reset:disabled {
+    background-color: #0d686d;
+    color: hsl(186, 14%, 43%);
+}
+#reset:enabled {
     color: #000;
     background-color: #26c2ad;
 }
-.resetHabilitado:hover {
+#reset:enabled:hover {
     color: #000;
     background-color: hsl(175, 47%, 71%);
 }
