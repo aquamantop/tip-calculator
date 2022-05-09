@@ -253,7 +253,7 @@ footer a:hover {
 @media (max-width: 430px) {
     form {
         flex-direction: column;
-        margin: 15% 0%;
+        margin: 10% 0%;
         padding: 1rem 0rem;
     }
     section {
@@ -270,7 +270,7 @@ footer a:hover {
     }
     #dos {
         width: 80%;
-        margin: -22vh 2vw 2vh;
+        margin: -5vh 2vw 2vh;
     }
     .errorPropina {
         margin-left: 14.5rem;
@@ -344,3 +344,4 @@ footer a:hover {
         color: #e59a89;
     }
 }
+
