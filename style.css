@@ -300,4 +300,47 @@ footer a:hover {
         padding: 1rem;
     }
 }
-
+@media (max-width: 375px) {
+    #dos {
+        margin: -10vh 2vw 2vh;
+    }
+    .boton {
+        padding: 1rem 1.4rem;
+        border-radius: 0.4rem;
+    }
+    #cinco {
+        padding: 1rem 2rem;
+    }
+    #custom {
+        font-size: 1.5rem;
+        width: 6rem;
+        padding: 1.4rem 0.4rem;
+    }
+    .errorPropina {
+        margin-left: 11rem;
+        color: #e59a89;
+    }
+    .errorPersona {
+        margin-left: 4rem;
+        color: #e59a89;
+    }
+    .ingresarDatos {
+        width: 85%;
+        border-radius: 0.5rem;
+        padding: 0.2rem 0.7rem;
+        font-size: 1.8rem;
+    }
+}
+@media (max-width: 320px) {
+    #dos {
+        margin: 2vh 2vw 2vh;
+    }
+    .errorPropina {
+        margin-left: 9rem;
+        color: #e59a89;
+    }
+    .errorPersona {
+        margin-left: 2rem;
+        color: #e59a89;
+    }
+}
