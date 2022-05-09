@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./style.css">
   <script src="./main.js"></script>
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <title>Frontend Mentor | Tip calculator app</title>
+  <title>Tip calculator app</title>
 
 </head>
 
@@ -28,7 +28,7 @@
 
         <!-- Monto del gasto total -->
         <label for="montoTotal">Bill<span id="errorMonto" class="hide">Can't be zero</span>
-          <input class="ingresarDatos" id="montoTotal" placeholder=0>
+          <input class="ingresarDatos bloquear" id="montoTotal" placeholder=0>
         </label> 
         
         <!-- Seccion de propinas -->
@@ -56,13 +56,13 @@
               50%
             </button>
             
-            <input class="boton" id="custom" placeholder="Custom">
+            <input class="boton bloquear" id="custom" placeholder="Custom">
           </div>
 
         </label>
         
         <label for="cantidadPersonas">Number of People<span id="errorPersonas" class="hide">Can't be zero</span>
-          <input class="ingresarDatos" id="cantidadPersonas" placeholder=0>  
+          <input class="ingresarDatos bloquear" id="cantidadPersonas" placeholder=0>  
         </label>
       </section>
       
@@ -94,7 +94,6 @@
     
   <footer>
     <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
       Coded by <a href="https://github.com/aquamantop" target="_blank">Franco Rampazzo</a>.
     </div>
   </footer>

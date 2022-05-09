@@ -25,6 +25,7 @@ window.addEventListener('load', () => {
     let valorCantidadDePersonas = 0
     let propinaAPagar = 0
     let porcentaje = 0
+    const bloquear = document.querySelectorAll('.bloquear');
 
     /* LISTENERS */
 
@@ -35,6 +36,10 @@ window.addEventListener('load', () => {
 
     /* Reseteat datos al clickear boton de reset */
     reset.addEventListener("click", () => {
+        vaciarArray(arrayConPunto)
+        vaciarArray(arraySinPunto)
+        vaciarArray(maxPersonas)
+        vaciarArray(maxPropina)
         valorMontoTotal = 0
         valorCantidadDePersonas = 0
         propinaAPagar = 0
@@ -209,6 +214,21 @@ window.addEventListener('load', () => {
         })
     }
     
+    /* Vaciar arrays */
+    function vaciarArray (array) {
+        for (let i = array.length; i > 0; i--) {
+            array.pop();
+          }
+    }
+
+    /* Evitar copiar y pegar */
+    bloquear.forEach((e) => {
+        e.onpaste = (e) => e.preventDefault();
+    })
+    bloquear.forEach((e) => {
+        e.oncopy = (e) => e.preventDefault();
+    })
+
     /* ERRORES */
 
     /* Visualizar error en el monto */
