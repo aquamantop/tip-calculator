@@ -100,7 +100,7 @@ window.addEventListener('load', () => {
     /* Y enviar valor de la propina a la funcion encargada */
     propinas.forEach((e) => {
         e.addEventListener("click", () => {
-            propinas.forEach(e=>e.classList.remove("propinaElegida"));
+            propinas.forEach(e=>e.classList.remove("propinaElegida"))
             e.classList.add("propinaElegida")
             valorPropina(e.innerHTML)
             custom.value = ""
