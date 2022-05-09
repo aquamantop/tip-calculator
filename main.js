@@ -216,7 +216,7 @@ window.addEventListener('load', () => {
     /* Visualizar error en el monto */
     /* Mas borde de error */
     function validarMonto () {
-        if (montoTotal.value === 0){
+        if (montoTotal.value == 0){
             errorMonto.classList.remove("hide")
             errorMonto.classList.add("errorPropina")
             montoTotal.classList.add("errorBorde")
