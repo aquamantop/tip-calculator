@@ -1,11 +1,11 @@
 /* Esperamos la carga de la pagina */
 window.addEventListener('load', () => {
 
-    /* Expresion regular */
+    /* EXPRESIONES REGULARES */
     const regex = /^[0-9]*(\.[0-9]{0,2})?$/
     const regex2 = /^[0-9]+$/
 
-    /* Constantes */
+    /* CONSTANTES */
     const form = document.forms[0]
     const montoTotal = document.querySelector("#montoTotal")
     const cantidadPersonas = document.querySelector("#cantidadPersonas")
@@ -26,9 +26,29 @@ window.addEventListener('load', () => {
     let propinaAPagar = 0
     let porcentaje = 0
 
+    /* LISTENERS */
+
     /* Prevenir enviado del form */
     form.addEventListener('submit', (e) => {
         e.preventDefault()
+    })
+
+    /* Reseteat datos al clickear boton de reset */
+    reset.addEventListener("click", () => {
+        valorMontoTotal = 0
+        valorCantidadDePersonas = 0
+        propinaAPagar = 0
+        porcentaje = 0
+        montoTotal.value = ""
+        cantidadPersonas.value = ""
+        propinas.forEach((e) => {
+            e.classList.remove("propinaElegida")
+        })
+        custom.value = ""
+        reset.setAttribute("disabled", true)
+
+        propinaPorPersona.innerHTML = `$0.00`
+        totalPorPersona.innerHTML = `$0.00`
     })
 
     /* Logica para que al apretar la tecla de retroceso se puedan seguir añadiendo numeros */
@@ -109,6 +129,7 @@ window.addEventListener('load', () => {
         }
     })
     
+    /* FUNCIONES */
 
     /* Funcion de validacion de numero en monto total */
     function validarTotal (num) {
@@ -166,9 +187,13 @@ window.addEventListener('load', () => {
     function renderizar () {
         nuevaPropina ()
         if (valorMontoTotal !== 0 && valorCantidadDePersonas !== 0 && propinaAPagar !== 0) {
+            let propina = (propinaAPagar / valorCantidadDePersonas).toFixed(2)
+            let total = ((valorMontoTotal + propinaAPagar) / valorCantidadDePersonas).toFixed(2)
+
+            propinaPorPersona.innerHTML = `$${propina}`
+            totalPorPersona.innerHTML = `$${total}`
+
             validarReset()
-            propinaPorPersona.innerHTML = `$${propinaAPagar / valorCantidadDePersonas}`
-            totalPorPersona.innerHTML = `$${(valorMontoTotal + propinaAPagar) / valorCantidadDePersonas}`
         }
     }
     
@@ -177,7 +202,7 @@ window.addEventListener('load', () => {
         montoAPagar.forEach(e => {
             let monto = e.innerHTML
             let recorte = monto.slice(1)
-            let valor = parseInt(recorte)
+            let valor = parseFloat(recorte)
             if(valor !== 0.00){
                 reset.removeAttribute("disabled")
             } else if (valor === 0.00){
@@ -186,7 +211,7 @@ window.addEventListener('load', () => {
         })
     }
     
-    /* Errores */
+    /* ERRORES */
 
     /* Visualizar error en el monto */
     /* Mas borde de error */
@@ -199,7 +224,7 @@ window.addEventListener('load', () => {
             errorMonto.classList.remove("errorPropina")
             errorMonto.classList.add("hide")
             montoTotal.classList.remove("errorBorde")
-            valorMontoTotal = parseInt(montoTotal.value)
+            valorMontoTotal = parseFloat(montoTotal.value)
         }
     }
 
