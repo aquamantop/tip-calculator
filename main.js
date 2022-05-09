@@ -103,6 +103,7 @@ window.addEventListener('load', () => {
             propinas.forEach(e=>e.classList.remove("propinaElegida"));
             e.classList.add("propinaElegida")
             valorPropina(e.innerHTML)
+            custom.value = ""
             renderizar()
         })
     })
@@ -120,13 +121,10 @@ window.addEventListener('load', () => {
         }
     })
     custom.addEventListener("blur", () => {
-        if (custom.value == 0){
-            alert("Custom tip can't be zero")
-        } else {
-            let valor = custom.value * valorMontoTotal / 100
-            propinaAPagar = valor / valorCantidadDePersonas
-            renderizar()
-        }
+        let valor = custom.value
+        propinaAPagar = valor * valorMontoTotal / 100
+        porcentaje = valor
+        renderizar()
     })
     
     /* FUNCIONES */
